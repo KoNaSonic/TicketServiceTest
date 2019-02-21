@@ -41,5 +41,62 @@ public interface User{
 	/*
 	 * Sign out
 	 */
+	void getListOfFutureEvent();
+	/*
+	Method show list of all future events (Table in DB - Events).
+	The list must be sorted by date in ascending order.
+	*/
+
+	void getListOfEventsByHall(String hallName);
+	/*
+	Method show a list of events with a filter on the hall
+	(Tables in DB : Halls-hallName-hallId - Events).
+	 */
+	void getListOfEventsByDate(LocalDate eventDate);
+	/*
+	 Method show a list of events by date (Table in DB - Events - eventDate).
+	 */
+	void  getListOfEventsByDateRange(LocalDate startDate, LocalDate endDate);
+	/*
+	  Method show list of events in the date range (Table in DB - Events - eventDate).
+	 */
+	void getListOfEventByType(EventType eventType);
+	/*
+	    Method show list of events by type (Table in DB - Events - eventType).
+	 */
+	void getListOfEventByHallAndDate(LocalDate eventDate, String hallName);
+	/*
+		Method show a list of events by date and hall
+		(Tables in DB - Halls-hallName-hallId - Events eventDate).
+	 */
+	void getListOfEventsByHallAndDateRange(LocalDate startDate, LocalDate endDate,
+										   String hallType);
+	/*
+		Method show a list of events by in the date range and hall type
+		Tables in DB - Halls-hallName-hallId - Events eventDate).
+	 */
+	void getHallScheme(String hallName);
+	/*
+	      Method show  a scheme by requested hall
+	      (Tables in DB : Events-Halls-hallName-hallId).
+	 */
+	void getListOfEventsInDateRangeByPriceInAsceptingOrder(LocalDate startDate,LocalDate endDate);
+	/*
+		 Method show list of events in the date range by price of events in ascending order.
+		(Tables in DB - Events - eventDate - eventId - Price).
+	 */
+	void getListOfEventsInDateRangeByPriceInDescendingOrder(LocalDate endDate,LocalDate startDate);
+	/*
+	     Method show list of events in the date range by price of events in descending  order.
+		(Tables in DB - Events - eventDate -  eventId - Price).
+		*/
+	void getListOfEventsByPriceRangeInAsceptingOrder(double priceFrom, double priceTo);
+	/*
+		 Method show list of events in the price in ascending order.
+		 (Tables in DB - Price - price - eventId - Events ).
+	 */
+
+}
+
 
 }
