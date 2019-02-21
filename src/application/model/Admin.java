@@ -17,7 +17,10 @@ public interface Admin extends User{
 	 
 	 void deleteEvent (int eventID);
 
-	 public int setPriceOfSeats();
+	 public int setPricesOfSeats(Event event, Seats seats, int price);
+	 // Set a prices of seats of a specific Event;
+
+
 	
 	
 }
