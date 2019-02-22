@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>TicketService</name>
 	<comment></comment>
 	<projects>
@@ -12,6 +13,15 @@
 		</buildCommand>
 		<buildCommand>
 			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+=======
+	<name>TicketServiceTemp</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+>>>>>>> refs/remotes/origin/develop
 			<arguments>
 			</arguments>
 		</buildCommand>
