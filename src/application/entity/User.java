@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -32,7 +34,8 @@ public class User {
 	private List<Ticket> tickets = new ArrayList<>();
 	@NotNull
 	private String userPass;
-	private String userRole;
+	@Enumerated(EnumType.STRING)
+	private UserRole userRole;
 	private String userPhone;
 
 }

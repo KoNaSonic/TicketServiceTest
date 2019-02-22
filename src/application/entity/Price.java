@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -31,6 +32,7 @@ public class Price {
 	@OneToMany(mappedBy = "price",cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private List<Seat> seats = new ArrayList<>();
+	@Digits(integer=10,fraction=3)
 	private Double pricePrice;
 	@ManyToOne
 	@JsonBackReference
