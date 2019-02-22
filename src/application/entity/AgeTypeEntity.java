@@ -20,13 +20,16 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name="age_type")
+
 public class AgeType {
+	
 	@Id
 	private Integer idAgeType;
 	
 	@OneToMany(mappedBy="ageType",cascade=CascadeType.ALL)
 	@JsonManagedReference
 	private List<Ticket> tickets = new ArrayList<>();
+	
 	private Integer coefficient;
 
 }

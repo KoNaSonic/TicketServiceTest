@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 /target/
 /!.txt
+=======
+/bin/
+/target/
+/.classpath/
+/.project/
+>>>>>>> refs/remotes/origin/develop

@@ -21,18 +21,24 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name="seat")
+
 public class Seat {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long seatId;
+	
 	private Integer rowNumber;
 	private Integer seatNumber;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonBackReference
 	private Price price;
+	
 	@ManyToOne
 	@JsonBackReference
 	private Hall hall;
+	
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="seat", cascade=CascadeType.ALL)
 	private Ticket ticket;
 
