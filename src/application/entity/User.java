@@ -4,29 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name="age_type")
-public class AgeType {
+@Table(name = "user")
+public class User {
 	@Id
-	private Integer idAgeType;
-	
-	@OneToMany(mappedBy="ageType",cascade=CascadeType.ALL)
+	@Column(length=128)
+	@Email
+	private String userEmail;
+	@OneToMany(mappedBy = "user",cascade=CascadeType.ALL)
 	@JsonManagedReference
 	private List<Ticket> tickets = new ArrayList<>();
-	private Integer coefficient;
+	@NotNull
+	private String userPass;
+	@Enumerated(EnumType.STRING)
+	private UserRole userRole;
+	private String userPhone;
 
 }

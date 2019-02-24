@@ -19,19 +19,25 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "tickets")
+
 public class Ticket {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ticketId;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonBackReference
 	private Event event;
+	
 	@ManyToOne
 	@JsonBackReference
 	private AgeType ageType;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonBackReference
 	private User user;
+	
 	@OneToOne(fetch=FetchType.LAZY)
 	private Seat seat;
 

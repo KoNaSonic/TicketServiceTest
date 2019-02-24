@@ -8,11 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Digits;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,14 +24,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name="seat_type")
-public class SeatType {
+@Table(name = "price")
+public class Price {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idSeatType;
-	@NotNull
-	private String seatType;
-	@OneToMany(mappedBy="seatType", cascade = CascadeType.ALL)
+	private Long priceId;
+	@OneToMany(mappedBy = "price",cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private List<Seat> seats = new ArrayList<>();
+	@Digits(integer=10,fraction=3)
+	private Double pricePrice;
+	@ManyToOne
 	@JsonBackReference
-	private List<Price> prices = new ArrayList<>();
+	private SeatType  seatType;
+	@ManyToOne
+	@JsonBackReference
+	private Event event;
+	
+
 }
