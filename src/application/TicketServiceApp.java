@@ -5,12 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-public class TicketService_App {
+public class TicketServiceApp {
+
 
 	public static void main(String[] args) {
-		
-		SpringApplication.run(TicketService_App.class, args);
-		
+		SpringApplication.run(TicketServiceApp.class, args);
+
 	}
 
 }

@@ -1,5 +1,6 @@
 package application.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,27 +20,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "tickets")
+@Table(name="seat")
 
-public class Ticket {
+public class Seat {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ticketId;
+	private Long seatId;
+	
+	private Integer rowNumber;
+	private Integer seatNumber;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonBackReference
-	private Event event;
+	private Price price;
 	
 	@ManyToOne
 	@JsonBackReference
-	private AgeType ageType;
+	private Hall hall;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JsonBackReference
-	private User user;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	private Seat seat;
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="seat", cascade=CascadeType.ALL)
+	private Ticket ticket;
 
 }

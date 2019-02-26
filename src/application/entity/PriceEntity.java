@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -21,28 +23,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "hall")
+@Table(name = "price")
 
-public class Hall {
+public class Price {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long hallId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long priceId;
 	
-	@OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
-	@JsonManagedReference
-	private List<Event> events = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "price",cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private List<Seat> seats = new ArrayList<>();
 	
-	private String hallName;
+	private Double pricePrice;
 	
-	private String hallType;
+	@ManyToOne
+	@JsonBackReference
+	private SeatType  seatType;
 	
-	private Integer seatsTotal;
+	@ManyToOne
+	@JsonBackReference
+	private Event event;
 	
-	private String layout;
 
 }
