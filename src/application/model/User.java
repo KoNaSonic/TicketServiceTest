@@ -126,7 +126,7 @@ public interface User{
 	/*
 	  Method show list of events in the date range (Table in DB - Events - eventDate).
 	 */
-	void getListOfEventByType(EventType eventType);
+	void getListOfEventByType(/*EventType*/String eventType);
 	/*
 	    Method show list of events by type (Table in DB - Events - eventType).
 	 */
@@ -166,4 +166,4 @@ public interface User{
 
 
 
-}
+
