@@ -1,23 +1,39 @@
 package application.model;
 
-import java.time.LocalDate;
+public interface Admin {
 
-public interface Admin extends User{
+    public boolean addUser(String email, String password);
+    // Manually add user to the system. For a example account of a new manager or cashier;
+    
+    public boolean addRole(User user);
+    // Add new role to the system;
+   
+    public User givingRole(/*Role*/ String role);
+    // Assignment role to User;
+    
+    public /*Role*/ String editRole(/*Role*/String role);
+    // Edit existing role for the specific functionality; It is need to find out how to fix accesses of roles with a help of methods
+    // not security.
+    
+    public boolean deleteRole();
+    
+    public boolean deleteUser();
+    
+    public String getPassword(User user);
+    //Get password of specific account if user don't success restore an account;
+    
+    public String [] getRoles (User user);
+    //Get array of all roles in a system;
+    
+    public String [] getUser (/*Role*/String role);
+    
+    public boolean addHole(String nameHall);
+    //Add new hall to the system;
+    
+    public /*Hall*/String editHall(/*Hall*/String  hall);
+    // Edit hall, for a example quantity of seats, hall type and etc.;
+    
+    public /*Hall*/String deleteHall(/*Hall*/String hall);
 
-	void addEvent (int eventID, String eventName, String artist, int hallName, 
-			LocalDate eventDate, LocalDate eventTime, String eventType, String desription);
-	/*
-	 * Method adds new events
-	 */
-	
-	 void editEvent(int eventID);
-	 /*
-	  * Editing an existing event
-	  */
-	 
-	 void deleteEvent (int eventID);
 
-	 public int setPricesOfSeats(/*Event*/ String event, /*Seats*/String seats, int price);
-	 // Set a prices of seats of a specific Event;
-	
 }
