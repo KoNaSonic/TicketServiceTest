@@ -2,22 +2,27 @@ package application.model;
 
 import java.time.LocalDate;
 
-public interface Manager extends User{
+public class Manager extends User implements I_Manager {
 
-	void addEvent (int eventID, String eventName, String artist, int hallName, 
-			LocalDate eventDate, LocalDate eventTime, String eventType, String desription);
-	/*
-	 * Method adds new events
-	 */
-	
-	 void editEvent(int eventID);
-	 /*
-	  * Editing an existing event
-	  */
-	 
-	 void deleteEvent (int eventID);
+	@Override
+	public void addEvent(int eventID, String eventName, String artist, int hallName, LocalDate eventDate,
+			LocalDate eventTime, String eventType, String desription) {
+		// TODO Auto-generated method stub
+	}
 
-	 public int setPricesOfSeats(/*Event*/ String event, /*Seats*/String seats, int price);
-	 // Set a prices of seats of a specific Event;
-	
+	@Override
+	public void editEvent(int eventID) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void deleteEvent(int eventID) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public int setPricesOfSeats(String event, String seats, int price) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

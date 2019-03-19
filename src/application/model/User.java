@@ -2,108 +2,47 @@ package application.model;
 
 import java.time.LocalDate;
 
-public interface User {
+public class User extends Guest implements I_User {
 
-	void checkingPassword(String userEmail, String UserPass);
-	/*
-	 * Using regular expressions, we check the validity of mail and password (both
-	 * lines must be in English, the mail must contain a symbol "@" and a dot in the
-	 * expression.)
-	 */
+	@Override
+	public void checkingPassword(String userEmail, String UserPass) {
+		// TODO Auto-generated method stub
+	}
 
-	void forgenPassword();
-	/*
-	 * If you forgot your password. Identification via SMS on the phone. It is
-	 * necessary to connect the SMS gateway site
-	 */
+	@Override
+	public void forgenPassword() {
+		// TODO Auto-generated method stub
 
-	void showEvents();
-	/*
-	 * Method show all events
-	 */
+	}
 
-	void searchEvents(String eventName);
-	/*
-	 * Event search method on request
-	 */
+	@Override
+	public void showDates(LocalDate date) {
+		// TODO Auto-generated method stub
+	}
 
-	void showDates(LocalDate date);
-	/*
-	 * Show events by date.
-	 */
+	@Override
+	public void logOut() {
+		// TODO Auto-generated method stub
+	}
 
-	void selectionEvent(int eventID);
-	/*
-	 * Show events by id
-	 */
+	@Override
+	public void getListOfEventsInDateRangeByPriceInAsceptingOrder(LocalDate startDate, LocalDate endDate) {
+		// TODO Auto-generated method stub
+	}
 
-	void logOut();
-	/*
-	 * Sign out
-	 */
+	@Override
+	public void getListOfEventsInDateRangeByPriceInDescendingOrder(LocalDate endDate, LocalDate startDate) {
+		// TODO Auto-generated method stub
+	}
 
-	void getListOfFutureEvent();
-	/*
-	 * Method show list of all future events (Table in DB - Events). The list must
-	 * be sorted by date in ascending order.
-	 */
+	@Override
+	public void getListOfEventsByPriceRangeInAsceptingOrder(double priceFrom, double priceTo) {
+		// TODO Auto-generated method stub
+	}
 
-	void getListOfEventsByHall(String hallName);
-
-	/*
-	 * Method show a list of events with a filter on the hall (Tables in DB :
-	 * Halls-hallName-hallId - Events).
-	 */
-	void getListOfEventsByDate(LocalDate eventDate);
-
-	/*
-	 * Method show a list of events by date (Table in DB - Events - eventDate).
-	 */
-	void getListOfEventsByDateRange(LocalDate startDate, LocalDate endDate);
-
-	/*
-	 * Method show list of events in the date range (Table in DB - Events -
-	 * eventDate).
-	 */
-	void getListOfEventByType(/* EventType */String eventType);
-
-	/*
-	 * Method show list of events by type (Table in DB - Events - eventType).
-	 */
-	void getListOfEventByHallAndDate(LocalDate eventDate, String hallName);
-
-	/*
-	 * Method show a list of events by date and hall (Tables in DB -
-	 * Halls-hallName-hallId - Events eventDate).
-	 */
-	void getListOfEventsByHallAndDateRange(LocalDate startDate, LocalDate endDate, String hallType);
-
-	/*
-	 * Method show a list of events by in the date range and hall type Tables in DB
-	 * - Halls-hallName-hallId - Events eventDate).
-	 */
-	void getHallScheme(String hallName);
-
-	/*
-	 * Method show a scheme by requested hall (Tables in DB :
-	 * Events-Halls-hallName-hallId).
-	 */
-	void getListOfEventsInDateRangeByPriceInAsceptingOrder(LocalDate startDate, LocalDate endDate);
-
-	/*
-	 * Method show list of events in the date range by price of events in ascending
-	 * order. (Tables in DB - Events - eventDate - eventId - Price).
-	 */
-	void getListOfEventsInDateRangeByPriceInDescendingOrder(LocalDate endDate, LocalDate startDate);
-
-	/*
-	 * Method show list of events in the date range by price of events in descending
-	 * order. (Tables in DB - Events - eventDate - eventId - Price).
-	 */
-	void getListOfEventsByPriceRangeInAsceptingOrder(double priceFrom, double priceTo);
-	/*
-	 * Method show list of events in the price in ascending order. (Tables in DB -
-	 * Price - price - eventId - Events ).
-	 */
+	@Override
+	public void getHallScheme(String hallName) {
+		// TODO Auto-generated method stub
+	}
 
 }
