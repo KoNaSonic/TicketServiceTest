@@ -2,6 +2,9 @@ package application.model;
 
 import java.time.LocalDate;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Manager extends User implements I_Manager {
 
 	@Override

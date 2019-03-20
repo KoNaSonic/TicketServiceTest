@@ -1,6 +1,11 @@
 package application.model;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Admin extends Manager implements I_Admin {
+	
+	
 
 	@Override
 	public boolean addUser(String email, String password) {
