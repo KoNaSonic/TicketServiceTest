@@ -39,11 +39,11 @@ public class Event {
 	
 	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<Ticket> tickets = new ArrayList<Ticket>();
+	private List<Ticket> ticket = new ArrayList<Ticket>();
 	
 	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<Price> prices = new ArrayList<>();
+	private List<Price> price = new ArrayList<>();
 	
 	@NotNull
 	private String eventName;

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "price")
+@Table(name = "prices")
 
 public class Price {
 	
@@ -33,7 +33,7 @@ public class Price {
 	
 	@OneToMany(mappedBy = "price",cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<Seat> seats = new ArrayList<>();
+	private List<Seat> seat = new ArrayList<>();
 	
 	private Double pricePrice;
 	

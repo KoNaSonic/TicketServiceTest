@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "hall")
+@Table(name = "halls")
 
 public class Hall {
 	
@@ -31,11 +31,11 @@ public class Hall {
 	
 	@OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<Event> events = new ArrayList<>();
+	private List<Event> event = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "hall", cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<Seat> seats = new ArrayList<>();
+	private List<Seat> seat = new ArrayList<>();
 	
 	private String hallName;
 	

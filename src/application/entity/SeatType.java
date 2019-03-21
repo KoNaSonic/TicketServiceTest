@@ -35,5 +35,5 @@ public class SeatType {
 	
 	@OneToMany(mappedBy="seatType", cascade = CascadeType.ALL)
 	@JsonBackReference
-	private List<Price> prices = new ArrayList<>();
+	private List<Price> price = new ArrayList<>();
 }
