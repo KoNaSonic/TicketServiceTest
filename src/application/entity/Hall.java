@@ -45,4 +45,12 @@ public class Hall {
 	
 	private String layout;
 
+	public Hall (Long hallId, String hallName, String hallType, Integer seatsTotal, String layout) {
+		this.hallId = hallId;
+		this.hallName = hallName;
+		this.hallType = hallType;
+		this.seatsTotal = seatsTotal;
+		this.layout = layout;
+	}
+
 }

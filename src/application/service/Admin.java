@@ -1,12 +1,14 @@
 package application.service;
 
+import application.entity.Hall;
 import application.entity.User;
-import application.entity.UserRole;
+import application.repository.HallRepo;
 import application.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class Admin extends Manager implements I_Admin {
@@ -14,10 +16,13 @@ public class Admin extends Manager implements I_Admin {
 	@Autowired
 	UserRepo userRepo;
 
+	@Autowired
+	HallRepo hallRepo;
+
 	@Override
-	public boolean addUser(String email) {
+	public boolean addUser(String email,String password,String role,String phone) {// Do we need to add all fields of a new User?
 		if(userRepo.existsById(email))return false;
-		userRepo.save(new User(email));
+		userRepo.save(new User(email,password,role,phone));
 		return true;
 	}
 
@@ -69,21 +74,31 @@ public class Admin extends Manager implements I_Admin {
 	}
 
 	@Override
-	public User[] getUser(String role) {
-
-		return User[];
+	public List<User> getUsersByRole(String role, String email) {
+		ArrayList<User> users = (ArrayList<User>) userRepo.findAll();
+		List<User> banda = null;
+		for(User user: users){
+			if(user.getUserRole()==role){
+				banda.add(user);
+			}
+		}
+		return banda;
 	}
 
 	@Override
-	public boolean addHole(String nameHall) {
-		// TODO Auto-generated method stub
+	public boolean addHole(Long hallId,String hallName,String hallType,Integer seatsTotal,
+	                       String layout) {//We need to think about what is hall id - String name or Long number.
+		if(hallRepo.existsById(hallId))return false;
+		hallRepo.save(new Hall(hallId,hallName,hallType,seatsTotal,layout));
+		return true;
+	}
+
+	@Override
+	public boolean editHall(Long hallId, String hallName,String hallType,Integer seatsTotal,
+	                       String layout) { //What function will be returned? I think we need to do each edit
+		// separately (hallName, seats total, layout);
+
 		return false;
-	}
-
-	@Override
-	public String editHall(String hall) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
