@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name="age_type")
+@Table(name="age_types")
 
 public class AgeType {
 	
@@ -28,8 +28,8 @@ public class AgeType {
 	
 	@OneToMany(mappedBy="ageType",cascade=CascadeType.ALL)
 	@JsonManagedReference
-	private List<Ticket> tickets = new ArrayList<>();
+	private List<Ticket> ticket = new ArrayList<>();
 	
-	private Integer coefficient;
+	private int coefficient;
 
 }

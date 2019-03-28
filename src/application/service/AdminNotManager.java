@@ -1,8 +1,9 @@
-package application.model;
+package application.service;
 
-import application.entity.EventEntity;
-import application.entity.HallEntity;
-import application.entity.TicketEntity;
+import application.entity.Event;
+import application.entity.Hall;
+import application.entity.Ticket;
+import application.entity.User;
 
 import java.util.Date;
 import java.util.List;
@@ -30,15 +31,15 @@ public interface AdminNotManager {
     public boolean addHole(String hallName, String hallType, int seatsTotal, String layout);
     //Add new hall to the system;
 
-    public HallEntity editHall(int hallId, int seatId);
+    public Hall editHall(int hallId, int seatId);
     // Edit hall, for a example quantity of seats, hall type and etc.;
 
-    public HallEntity deleteHall(int hallId);
+    public Hall deleteHall(int hallId);
 
-    public TicketEntity soldTicketsByDate(Date date);
+    public Ticket soldTicketsByDate(Date date);
     // Show sold tickets by specific day;
 
-    public TicketEntity soldTicketsByHall(int hallId);
+    public Ticket soldTicketsByHall(int hallId);
     // Show sold tickets by specific day;
 
     public Integer sumOfPaymentsByHall(int hallId);
@@ -50,7 +51,7 @@ public interface AdminNotManager {
     public Integer sumOfPaymentsByUser(String iserEmail);
     // Show sum of sold tickets by User;
 
-    public List<EventEntity> eventsByMonth(Date date);
+    public List<Event> eventsByMonth(Date date);
     // Show all of events by month;
 
     public String addNews(String news);
