@@ -1,12 +1,18 @@
 package application.model;
 
+import java.util.List;
+
+import application.entity.Event;
+import application.entity.Seat;
+import application.entity.Ticket;
+
 public interface I_Admin {
 
-	public boolean addUser(String email, String password);
+	public boolean addUser(String userEmail, List<Ticket> tickets, String userPass, String userRole, String userPhone);
 	// Manually add user to the system. For a example account of a new manager or
 	// cashier;
 
-	public boolean addRole(I_User user);
+	public boolean addRole(String role);
 	// Add new role to the system;
 
 	public I_User givingRole(/* Role */ String role);
@@ -21,15 +27,16 @@ public interface I_Admin {
 
 	public boolean deleteUser();
 
-	public String getPassword(I_User user);
+	public String getPassword(User user);
 	// Get password of specific account if user don't success restore an account;
 
-	public String[] getRoles(I_User user);
+	public String[] getRoles(User user);
 	// Get array of all roles in a system;
 
 	public String[] getUser(/* Role */String role);
 
-	public boolean addHole(String nameHall);
+	public boolean addHole(Long hallId, List<Event> event, List<Seat> seat, String hallName, String hallType,
+			Integer seatsTotal, String layout);
 	// Add new hall to the system;
 
 	public /* Hall */String editHall(/* Hall */String hall);
